@@ -36,15 +36,19 @@ function Panel() {
     return <div>Loading...</div>;
   }
 
+  console.log("Jiyaiydjsklfhkl",userDetails)
   if (!userDetails) {
-    return <Navigate to="/sdfd" />;
+    return <Navigate to="/login" />;
+    console.log("Taking to error")
   }
 
   if (userDetails.role === "admin") {
     return <Navigate to="/admin" />;
   }
-
-  return <Navigate to="/voter" />;
+  if (userDetails.role === "voter") {
+    return <Navigate to="/voter" />;
+  }
+  return <Navigate to="/404" />;
 }
 
 export default Panel;

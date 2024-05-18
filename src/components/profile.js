@@ -1,25 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
+import { Navigate } from "react-router-dom";
 
 function Profile() {
   const [userDetails, setUserDetails] = useState(null);
-  const fetchUserData = async () => {
-    auth.onAuthStateChanged(async (user) => {
-      console.log(user);
+  const [loading, setLoading] = useState(true);
 
+  const fetchUserData = async (user) => {
+    if (user) {
       const docRef = doc(db, "Users", user.uid);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         setUserDetails(docSnap.data());
         console.log(docSnap.data());
       } else {
-        console.log("User is not logged in");
+        console.log("No user details found in Firestore");
+      }
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        fetchUserData(user);
+      } else {
+        setLoading(false);
       }
     });
-  };
-  useEffect(() => {
-    fetchUserData();
+
+    return () => unsubscribe();
   }, []);
 
   async function handleLogout() {
@@ -31,6 +42,13 @@ function Profile() {
       console.error("Error logging out:", error.message);
     }
   }
+
+  console.log("Landed on profile page");
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       {userDetails ? (
@@ -40,6 +58,7 @@ function Profile() {
               src={userDetails.photo}
               width={"40%"}
               style={{ borderRadius: "50%" }}
+              alt="User profile"
             />
           </div>
           <h3>Welcome {userDetails.firstName} 🙏🙏</h3>
@@ -53,9 +72,10 @@ function Profile() {
           </button>
         </>
       ) : (
-        <p>Loading...</p>
+        <Navigate to="/jiya" />
       )}
     </div>
   );
 }
+
 export default Profile;

@@ -4,6 +4,8 @@ import { auth } from "./firebase";
 import { toast } from "react-toastify";
 import SignInwithGoogle from "./signInWIthGoogle";
 
+import Navbar from "./Navbar";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +29,8 @@ function Login() {
   };
 
   return (
-    
+    <div>
+      <Navbar/>
     <div className="auth-wrapper">
   <div className="auth-inner">
     <form onSubmit={handleSubmit}>
@@ -67,7 +70,7 @@ function Login() {
     </form>
     </div>
     </div>
-
+    </div>
   );
 }
 

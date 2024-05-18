@@ -8,14 +8,16 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Login from "./components/login";
-import SignUp from "./components/register";
+import Login from "./components/Login";
+import SignUp from "./components/Register";
 import Home from "./components/Home";
-import Panel from "./components/panel";
+import Panel from "./components/Panel";
+import Voter from "./components/Voter";
+import Admin from "./components/Admin";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Profile from "./components/profile";
+import Profile from "./components/Profile";
 import { useState } from "react";
 import { auth } from "./components/firebase";
 
@@ -45,6 +47,8 @@ function App() {
               <Route path="/panel" element={<Panel />} />
               <Route path="/register" element={<SignUp />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/voter" element={<Voter />} />
+              <Route path="/admin" element={<Admin />} />
             </Routes>
             <ToastContainer />
             </Router>

@@ -1,13 +1,16 @@
 import React from 'react'
 import Navbar from './Navbar'
 
-const admin = () => {
+const Admin = () => {
+  console.log("On admin panel")
+  
   return (
+
     <div>
         <Navbar/>
-      Admin
+      <h1>Admin Panel</h1>
     </div>
   )
 }
 
-export default admin
+export default Admin
