@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { Navigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function Profile() {
   const [userDetails, setUserDetails] = useState(null);
@@ -50,6 +51,8 @@ function Profile() {
   }
 
   return (
+    <div><div>
+      <Navbar/>
     <div>
       {userDetails ? (
         <>
@@ -61,7 +64,7 @@ function Profile() {
               alt="User profile"
             />
           </div>
-          <h3>Welcome {userDetails.firstName} 🙏🙏</h3>
+          <h3>Welcome {userDetails.firstName}</h3>
           <div>
             <p>Email: {userDetails.email}</p>
             <p>First Name: {userDetails.firstName}</p>
@@ -72,9 +75,10 @@ function Profile() {
           </button>
         </>
       ) : (
-        <Navigate to="/jiya" />
+        <Navigate to="/login" />
       )}
     </div>
+    </div></div>
   );
 }
 
