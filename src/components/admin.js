@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
+import Write from './Write'
 
 const Admin = () => {
   console.log("On admin panel")
@@ -9,6 +10,7 @@ const Admin = () => {
     <div>
         <Navbar/>
       <h1>Admin Panel</h1>
+      <Write/>
     </div>
   )
 }
