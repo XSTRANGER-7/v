@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { database } from './firebase'; // Correct import
 import { ref, set, push } from 'firebase/database';
-import { useNavigate } from 'react-router-dom';
 
 function Write() {
   // const navigate = useNavigate(); // Uncomment if you plan to use navigate
