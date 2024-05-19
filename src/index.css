@@ -92,3 +92,8 @@ html,
     margin-top: 1rem;
     text-align: center;
 }
+
+
+input{
+  border: 1px solid blue;
+}

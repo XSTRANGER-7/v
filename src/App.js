@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import Panel from "./components/Panel";
 import Voter from "./components/Voter";
 import Admin from "./components/Admin";
+import Poll from "./components/Poll";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -53,6 +54,9 @@ function App() {
               <Route path="/quiz/quizId" component={ViewQuiz} />
               <Route path='/quiz' element={<ViewQuiz/>}>
           <Route path=':quizId' element={<ViewQuiz/>}/>
+        </Route> 
+        <Route path='/poll' element={<Poll/>}>
+          <Route path=':quizId' element={<Poll/>}/>
         </Route> 
             </Routes>
             <ToastContainer />

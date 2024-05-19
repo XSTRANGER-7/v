@@ -32,16 +32,16 @@ function QuizDetail() {
 
   return (
     <div>
-        <p>quiz</p>
-      <h2>Quiz Name : {quiz.name}</h2>
-      <p>Quiz Question : {quiz.question}</p>
+      <h2>Poll Name : {quiz.name}</h2>
+      <p>Poll Question : {quiz.question}</p>
       
 
       <ul>
         {quiz.options.map( (item, index) => (
           <>
             <li key={index}> 
-             <p>Option:  {item}</p>   
+             <p>Option:  {item.option}</p>   
+             <p>Poll Ratio:  {item.count}</p>   
               
             </li>
 

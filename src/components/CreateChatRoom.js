@@ -3,8 +3,6 @@ import { database } from './firebase'; // Correct import
 import { ref, set, push } from 'firebase/database';
 
 function Write() {
-  // const navigate = useNavigate(); // Uncomment if you plan to use navigate
-
   const [inputValue1, setInputValue1] = useState('');
   const [inputValue2, setInputValue2] = useState('');
   const [options, setOptions] = useState([{ option: '', count: 0 }]); // State to store options

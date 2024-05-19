@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
+import VoterQuizList from './VoterQuizList'
 
 const Voter = () => {
   console.log("On voter panel")
@@ -7,6 +8,7 @@ const Voter = () => {
     <div>
       <Navbar/>
       <h1>Voter Panel</h1>
+      <VoterQuizList/>
     </div>
   )
 }
