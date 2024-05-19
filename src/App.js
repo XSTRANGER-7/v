@@ -22,6 +22,7 @@ import Profile from "./components/Profile";
 import { useState } from "react";
 import { auth } from "./components/firebase";
 import ViewQuiz from "./components/ViewQuiz"
+import ChatPanel from "./components/ChatPanel";
 
 function App() {
   const [user, setUser] = useState();
@@ -51,6 +52,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/voter" element={<Voter />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/chatpanel" element={<ChatPanel/>} />
               <Route path="/quiz/quizId" component={ViewQuiz} />
               <Route path='/quiz' element={<ViewQuiz/>}>
           <Route path=':quizId' element={<ViewQuiz/>}/>

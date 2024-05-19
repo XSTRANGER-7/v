@@ -2,40 +2,28 @@ import React, { useState } from 'react';
 import { database } from './firebase'; // Correct import
 import { ref, set, push } from 'firebase/database';
 
-function Write() {
+function CreateChatRoom() {
   const [inputValue1, setInputValue1] = useState('');
-  const [inputValue2, setInputValue2] = useState('');
-  const [options, setOptions] = useState([{ option: '', count: 0 }]); // State to store options
-
-  const handleOptionChange = (index, value) => {
-    const newOptions = [...options];
-    newOptions[index].option = value;
-    setOptions(newOptions);
-  };
-
-  const addOption = () => {
-    setOptions([...options, { option: '', count: 0 }]);
-  };
 
   const saveData = async () => {
     try {
-      const newDocRef = push(ref(database, 'IndiVue/polls'));
+      const newDocRef = push(ref(database, 'IndiVue/chatrooms'));
       await set(newDocRef, {
         name: inputValue1,
-        question: inputValue2,
-        options: options
+        chats: [''] 
       });
-      alert('Poll Created Successfully');
+      alert('Chat Room Created Successfully');
+      setInputValue1(''); // Reset the input field after successful creation
     } catch (error) {
-      console.error('Error writing to Firebase Database:', error);
+      console.error('Error writing to Database:', error);
       alert('Error: ' + error.message);
     }
   };
 
   return (
     <div>
-      <h2>Create Poll</h2>
-      <label htmlFor="name">Poll Name</label>
+      <h2>Create Chat Room</h2>
+      <label htmlFor="name">Chat Room Name</label>
       <input
         type='text'
         id="name"
@@ -43,31 +31,9 @@ function Write() {
         onChange={(e) => setInputValue1(e.target.value)}
       />
       <br /><br />
-      <label htmlFor="question">Question</label>
-      <input
-        type='text'
-        id="question"
-        value={inputValue2}
-        onChange={(e) => setInputValue2(e.target.value)}
-      />
-      <br /><br />
-      
-      <label>Options:</label>
-      {Array.isArray(options) && options.map((optionObj, index) => (
-        <div key={index}>
-          <input
-            type="text"
-            value={optionObj.option}
-            onChange={(e) => handleOptionChange(index, e.target.value)}
-          />
-        </div>
-      ))}
-      <button onClick={addOption}>+</button>
-      <br /><br />
-
       <button onClick={saveData}>Create</button>
     </div>
   );
 }
 
-export default Write;
+export default CreateChatRoom;
