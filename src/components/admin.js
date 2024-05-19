@@ -9,8 +9,7 @@ const Admin = () => {
   
   return (
 
-    <div>
-        <Navbar/>
+    <div> 
       <h1>Admin Panel</h1>
       <h1 className="text-xl font-bold underline">
       Hello world!

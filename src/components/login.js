@@ -29,8 +29,7 @@ function Login() {
   };
 
   return (
-    <div>
-      {/* <Navbar/> */}
+    <div> 
     <div className="auth-wrapper">
   <div className="auth-inner">
     <form onSubmit={handleSubmit}>

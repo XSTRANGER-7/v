@@ -51,8 +51,7 @@ function Profile() {
   }
 
   return (
-    <div><div>
-      <Navbar/>
+    <div><div> 
     <div>
       {userDetails ? (
         <>
