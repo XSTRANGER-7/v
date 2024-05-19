@@ -30,7 +30,7 @@ function Login() {
 
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
     <div className="auth-wrapper">
   <div className="auth-inner">
     <form onSubmit={handleSubmit}>
