@@ -12,6 +12,9 @@ const Admin = () => {
     <div>
         <Navbar/>
       <h1>Admin Panel</h1>
+      <h1 className="text-xl font-bold underline">
+      Hello world!
+    </h1>
       <Write/>
       <br /><br />
       <QuizList/>
